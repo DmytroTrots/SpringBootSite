@@ -1,0 +1,67 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title>Registration</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://getbootstrap.com/docs/5.0/examples/sign-in/signin.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/registerStyle.css}" />
+</head>
+<body style="background: #2b3035">
+
+<div class="container register" style="height: 762px; margin: 0">
+    <div class="row">
+        <div class="col-md-9 register-right">
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Введите необходимые данные</h3>
+                    <div class="row register-form" style="padding-left: 200px">
+                        <form th:action="@{/process_register}" method="post"
+                              th:object="${user}">
+                        <div class="col-md-6" style="max-width: 100%; ">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Имя" th:field = "*{firstname}" required value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Фамилия" th:field = "*{surname}" required value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Отчество" th:field = "*{fathersname}" required value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Пароль" th:field = "*{password}" required value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control"  placeholder="Подтвердите пароль"  value="" />
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="max-width: 100%">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Логин" th:field = "*{login}" required />
+                            </div>
+                            <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Email" th:field = "*{email}" required  />
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Факультет" title="Введите факультет в форме: ФИТ, ФРГТБ, ..., ФФО" th:field = "*{faculty}" required value="" />
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Курс" value="" th:field = "*{course}"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="form-control" placeholder="Група" th:field = "*{groupofstudent}"/>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btnRegister"  value="Зарегистрироваться" style=""/>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
