@@ -43,14 +43,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="f_fit_c2g9 : ${subjects}">
-                            <th th:text="${f_fit_c2g9.id_c2g9}" scope="row"></th>
-                            <td>8:20 - 9:40</td>
-                            <td th:text="${f_fit_c2g9.monday}"></td>
-                            <td th:text="${f_fit_c2g9.tuesday}"></td>
-                            <td th:text="${f_fit_c2g9.wednesday}"></td>
-                            <td th:text="${f_fit_c2g9.thursday}"></td>
-                            <td th:text="${f_fit_c2g9.friday}"></td>
+                        <tr th:each="f_fit : ${subjects}">
+                            <th th:text="${f_fit.subject}" scope="row"></th>
+                            <td th:text="${f_fit.monday}"></td>
+                            <td th:text="${f_fit.tuesday}"></td>
+                            <td th:text="${f_fit.wednesday}"></td>
+                            <td th:text="${f_fit.thursday}"></td>
+                            <td th:text="${f_fit.friday}"></td>
                         </tr>
                         </tbody>
                     </table>
@@ -76,14 +75,13 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="f_fit_c2g9 : ${subjects}">
-                        <th th:text="${f_fit_c2g9.id_c2g9}" scope="row"></th>
-                        <td>8:20 - 9:40</td>
-                        <td th:text="${f_fit_c2g9.monday2}"></td>
-                        <td th:text="${f_fit_c2g9.tuesday2}"></td>
-                        <td th:text="${f_fit_c2g9.wednesday2}"></td>
-                        <td th:text="${f_fit_c2g9.thursday2}"></td>
-                        <td th:text="${f_fit_c2g9.friday2}"></td>
+                    <tr th:each="f_fit : ${subjects}">
+                        <th th:text="${f_fit.subject}" scope="row"></th>
+                        <td th:text="${f_fit.monday2}"></td>
+                        <td th:text="${f_fit.tuesday2}"></td>
+                        <td th:text="${f_fit.wednesday2}"></td>
+                        <td th:text="${f_fit.thursday2}"></td>
+                        <td th:text="${f_fit.friday2}"></td>
                     </tr>
                     </tbody>
                 </table>

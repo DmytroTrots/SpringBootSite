@@ -3,11 +3,20 @@ package com.SpringSiteGOSH.DatabaseSubjects;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "f_fit_c2g10")
-public class f_fit_c2g10 {
+@Table(name = "f_fit")
+public class f_fit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_f_fit_c2g10;
+    private Long id;
+
+    @Column
+    private int subject;
+
+    @Column(length = 60)
+    private int groupofstudent;
+
+    @Column(length = 60)
+    private int courseofstudent;
 
     @Column(length = 60)
     private String monday;
@@ -38,6 +47,30 @@ public class f_fit_c2g10 {
 
     @Column(length = 60)
     private String friday2;
+
+    public int getSubject() {
+        return subject;
+    }
+
+    public void setSubject(int subject) {
+        this.subject = subject;
+    }
+
+    public int getGroupofstudent() {
+        return groupofstudent;
+    }
+
+    public void setGroupofstudent(int groupofstudent) {
+        this.groupofstudent = groupofstudent;
+    }
+
+    public int getCourseofstudent() {
+        return courseofstudent;
+    }
+
+    public void setCourseofstudent(int courseofstudent) {
+        this.courseofstudent = courseofstudent;
+    }
 
     public String getMonday2() {
         return monday2;
@@ -79,12 +112,12 @@ public class f_fit_c2g10 {
         this.friday2 = friday2;
     }
 
-    public Long getId_c2g9() {
-        return id_f_fit_c2g10;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_c2g9(Long id_f_fit_c2g10) {
-        this.id_f_fit_c2g10 = id_f_fit_c2g10;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getMonday() {
