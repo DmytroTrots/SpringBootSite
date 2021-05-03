@@ -48,6 +48,17 @@ public class f_fit {
     @Column(length = 60)
     private String friday2;
 
+    @Column(length = 60)
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
     public int getSubject() {
         return subject;
     }

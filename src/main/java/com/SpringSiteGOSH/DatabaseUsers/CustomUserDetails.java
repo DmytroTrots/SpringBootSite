@@ -6,10 +6,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
-    private User user;
+    private final User user;
 
     public CustomUserDetails(User user) {
         this.user = user;
+    }
+
+    public int course(){
+        return user.getCourse();
+    }
+
+    public int groupofstudent(){
+        return user.getGroupofstudent();
     }
 
     @Override
@@ -25,10 +33,6 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public String getUsername() {
         return user.getLogin();
-    }
-
-    public int getCourse(){
-        return  user.getCourse();
     }
 
     @Override

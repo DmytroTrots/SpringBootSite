@@ -45,6 +45,7 @@
                         <tbody>
                         <tr th:each="f_fit : ${subjects}">
                             <th th:text="${f_fit.subject}" scope="row"></th>
+                            <td th:text="${f_fit.time}"></td>
                             <td th:text="${f_fit.monday}"></td>
                             <td th:text="${f_fit.tuesday}"></td>
                             <td th:text="${f_fit.wednesday}"></td>
@@ -77,6 +78,7 @@
                     <tbody>
                     <tr th:each="f_fit : ${subjects}">
                         <th th:text="${f_fit.subject}" scope="row"></th>
+                        <td th:text="${f_fit.time}"></td>
                         <td th:text="${f_fit.monday2}"></td>
                         <td th:text="${f_fit.tuesday2}"></td>
                         <td th:text="${f_fit.wednesday2}"></td>

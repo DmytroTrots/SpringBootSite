@@ -1,14 +1,16 @@
 package com.SpringSiteGOSH.Controllers;
 
+import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
 import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
 import com.SpringSiteGOSH.SubjectsServices.F_fitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -28,10 +30,14 @@ public class ShedulePageController {
         this.f_fitService = f_fitService;
     }
 
+    @GetMapping
     @RequestMapping("/schedule")
-    public String schedulePage(@RequestParam("course") int course, Model model) {
+    public String schedulePage(HttpServletRequest request, Model model) {
         model.addAttribute("groupandcourse", customUserDetailsService.listAllUsers());
-        model.addAttribute("subjects", f_fitService.getSubjectByGroupAndCourse(course));
+        CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int course = userDetails.course();
+        int groupofstudent = userDetails.groupofstudent();
+        model.addAttribute("subjects", f_fitService.getSubjectByGroupAndCourse(course, groupofstudent));
         return "SchedulePage";
     }
 }

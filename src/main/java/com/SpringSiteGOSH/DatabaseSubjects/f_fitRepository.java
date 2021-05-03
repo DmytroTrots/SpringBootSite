@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface f_fitRepository extends JpaRepository<f_fit, Long> {
-    @Query("SELECT f FROM f_fit f WHERE f.courseofstudent= :course and f.groupofstudent= 9")
-    List<f_fit> findByGroupofstudentAndCourseofstudent(@Param("course") int course);
+    @Query("SELECT f FROM f_fit f WHERE f.courseofstudent= :course and f.groupofstudent= :groupofstudent")
+    List<f_fit> findByGroupofstudentAndCourseofstudent(@Param("course") int course, @Param("groupofstudent") int groupofstudent);
 }
