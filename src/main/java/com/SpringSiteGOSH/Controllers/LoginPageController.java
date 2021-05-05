@@ -18,6 +18,4 @@ public class LoginPageController {
         }
         return "redirect:/schedule";
     }
-
-
 }

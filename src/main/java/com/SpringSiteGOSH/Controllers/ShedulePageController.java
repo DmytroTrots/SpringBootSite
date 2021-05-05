@@ -4,7 +4,6 @@ import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
 import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
 import com.SpringSiteGOSH.SubjectsServices.F_fitService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
