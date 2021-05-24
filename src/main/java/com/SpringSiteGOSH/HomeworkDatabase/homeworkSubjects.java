@@ -1,7 +1,10 @@
 package com.SpringSiteGOSH.HomeworkDatabase;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 
+@Component
 @Entity
 @Table(name = "subjectshome")
 public class homeworkSubjects {

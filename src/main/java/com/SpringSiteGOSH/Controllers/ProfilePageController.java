@@ -4,17 +4,17 @@ import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class LinksPageController {
+public class ProfilePageController {
 
     @GetMapping
-    @RequestMapping("/links")
-    public String linksPage(Model model) {
+    @RequestMapping("/profile")
+    public String schedulePage(Model model) {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("login", userDetails.getUsername());
-        return "UsefulLinks";
+        model.addAttribute("course", userDetails.course());
+        return "ProfilePage";
     }
 }

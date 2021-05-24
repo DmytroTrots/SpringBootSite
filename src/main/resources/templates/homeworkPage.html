@@ -13,8 +13,8 @@
     <nav>
       <ul>
         <li><a href="/schedule">Расписание</a></li>
-        <li><a href="#">Домашнее задание</a></li>
-        <li><a href="/homework">Профиль</a></li>
+        <li><a th:href="@{/homework/{login}(login=${login})}">Домашнее задание</a></li>
+        <li><a href="/profile">Профиль</a></li>
         <li><a href="/links">Полезные ссылки</a></li>
       </ul>
     </nav>
@@ -38,7 +38,7 @@
           </thead>
           <tbody>
           <tr th:each="homeworkSubjects : ${subjects}">
-            <td> <a th:href="@{/schedule}" th:text="${homeworkSubjects.subject}"></a></td>
+            <td> <a th:href="@{/add/{subject}(subject=${homeworkSubjects.getSubject()})}" th:text="${homeworkSubjects.subject}"></a></td>
           </tr>
           </tbody>
         </table>

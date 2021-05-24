@@ -9,9 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-
-
 @Controller
 public class ShedulePageController {
 
@@ -21,21 +18,14 @@ public class ShedulePageController {
     @Autowired
     private F_fitService f_fitService;
 
-    public void setCustomUserDetailsService(CustomUserDetailsService customUserDetailsService){
-        this.customUserDetailsService = customUserDetailsService;
-    }
-
-    public void setF_fit_c2g9Service(F_fitService f_fitService){
-        this.f_fitService = f_fitService;
-    }
-
     @GetMapping
     @RequestMapping("/schedule")
-    public String schedulePage(HttpServletRequest request, Model model) {
+    public String schedulePage(Model model) {
         model.addAttribute("groupandcourse", customUserDetailsService.listAllUsers());
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         int course = userDetails.course();
         int groupofstudent = userDetails.groupofstudent();
+        model.addAttribute("login", userDetails.getUsername());
         model.addAttribute("subjects", f_fitService.getSubjectByGroupAndCourse(course, groupofstudent));
         return "SchedulePage";
     }

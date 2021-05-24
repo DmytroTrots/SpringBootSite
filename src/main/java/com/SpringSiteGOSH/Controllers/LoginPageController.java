@@ -1,6 +1,5 @@
 package com.SpringSiteGOSH.Controllers;
 
-import net.bytebuddy.implementation.bind.MethodDelegationBinder;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
