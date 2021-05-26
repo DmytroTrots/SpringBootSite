@@ -13,8 +13,4 @@ public class homeworkSubjectsService {
     public List<homeworkSubjects> getHomeworkSubjects(int course, int groupofstudent){
         return homeworkSubjectsRepository.findByCourseofstudentAndGroupofstudent(course, groupofstudent);
     }
-
-
-
-
 }

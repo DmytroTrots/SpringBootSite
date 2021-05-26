@@ -2,6 +2,7 @@ package com.SpringSiteGOSH.Controllers;
 
 import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
 import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
+import com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjects;
 import com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,6 +18,8 @@ public class HomeworkPageController {
 
     @Autowired
     private homeworkSubjectsService homeworkSubjectsService;
+
+    private com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjects homeworkSubjects;
 
     @GetMapping
     @RequestMapping("/homework/{login}")
