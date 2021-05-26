@@ -25,7 +25,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-6 text-center mb-5">
-        <h2 class="heading-section">Выберите предмет, чтобы добавить домашнее задание</h2>
+        <h2 class="heading-section">Домашнее задание</h2>
       </div>
     </div>
     <div class="row">
@@ -33,12 +33,25 @@
         <table class="table table-bordered table-dark table-hover">
           <thead>
           <tr style="text-align: center; width: 20px">
-            <th>Hello</th>
+            <th>Tasks</th>
+            <th>Deadline</th>
           </tr>
           </thead>
+          <tbody>
+          <tr th:each="homeworkAddDatabase : ${homeworkTasks}">
+            <td th:text="${homeworkAddDatabase.task}"></td>
+            <td th:text="${homeworkAddDatabase.deadline}"></td>
+          </tr>
+          </tbody>
         </table>
+        <form th:action="@{/homework/add(subject=${subj})}" method="post">
+          <input type="text" name="task" placeholder="Домашнее задание">
+          <input type="date" name="deadline" placeholder="Крайний срок сдачи">
+          <button type="submit">Добавить домашнее задание</button>
+        </form>
       </div>
     </div>
+    <span th:text="${subj}"></span>
   </div>
 </section>
 

@@ -30,7 +30,7 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-bordered table-dark table-hover">
+        <table class="table table-bordered table-dark table-hover" >
           <thead>
           <tr style="text-align: center; width: 20px">
             <th>Subj</th>
@@ -38,7 +38,7 @@
           </thead>
           <tbody>
           <tr th:each="homeworkSubjects : ${subjects}">
-            <td> <a th:href="@{/add/{subject}(subject=${homeworkSubjects.getSubject()})}" th:text="${homeworkSubjects.subject}"></a></td>
+            <td> <a th:with="ren=${homeworkSubjects.getSubject()}" th:href="@{/homework/add(subject=${ren})}" th:text="${homeworkSubjects.subject}"></a></td>
           </tr>
           </tbody>
         </table>
