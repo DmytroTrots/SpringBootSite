@@ -2,7 +2,6 @@ package com.SpringSiteGOSH.Controllers;
 
 import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
 import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
-import com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjects;
 import com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,11 +18,9 @@ public class HomeworkPageController {
     @Autowired
     private homeworkSubjectsService homeworkSubjectsService;
 
-    private com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjects homeworkSubjects;
-
     @GetMapping
-    @RequestMapping("/homework/{login}")
-    public String homeworkPage(@RequestParam(value = "login", required = false) String login, Model model) {
+    @RequestMapping("/homework")
+    public String homeworkPage(Model model) {
         model.addAttribute("groupandcourse", customUserDetailsService.listAllUsers());
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         int course = userDetails.course();

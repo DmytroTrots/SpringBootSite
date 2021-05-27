@@ -55,10 +55,6 @@ public class f_fit {
         return time;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
     public int getSubject() {
         return subject;
     }

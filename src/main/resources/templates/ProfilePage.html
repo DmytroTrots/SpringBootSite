@@ -13,8 +13,8 @@
     <nav>
       <ul>
         <li><a href="/schedule">Расписание</a></li>
-        <li><a th:href="@{/homework/{login}(login=${login})}">Домашнее задание</a></li>
-        <li><a href="/profile">Профиль</a></li>
+        <li><a href="/homework">Домашнее задание</a></li>
+        <li><a th:href="@{/profile/{login}(login=${login})}">Профиль</a></li>
         <li><a href="/links">Полезные ссылки</a></li>
       </ul>
     </nav>
@@ -23,6 +23,14 @@
 
 <section class="ftco-section">
   <div class="container">
-    <div th:text="${course}"></div>
+    <div>
+      <div th:text="${firstname}"></div>
+      <div th:text="${surname}"></div>
+      <div th:text="${login}"></div>
+      <div th:text="${email}"></div>
+      <div th:text="${faculty}"></div>
+      <div th:text="${course}"></div>
+      <div th:text="${group}"></div>
+    </div>
   </div>
 </section>

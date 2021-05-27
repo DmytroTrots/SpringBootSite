@@ -19,6 +19,19 @@ public class CustomUserDetails implements UserDetails {
     public int groupofstudent(){
         return user.getGroupofstudent();
     }
+    public String email(){
+        return user.getEmail();
+    }
+    public String firstname(){
+        return user.getFirstname();
+    }
+    public String surname(){
+        return user.getSurname();
+    }
+    public String faculty(){
+        return user.getFaculty();
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
