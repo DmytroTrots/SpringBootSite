@@ -1,35 +1,36 @@
-package com.SpringSiteGOSH.DatabaseUsers;
+package com.SpringSiteGOSH.Repositories;
 
+import com.SpringSiteGOSH.Entities.UsersEntity;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
 public class CustomUserDetails implements UserDetails {
-    private final User user;
+    private final UsersEntity usersEntity;
 
-    public CustomUserDetails(User user) {
-        this.user = user;
+    public CustomUserDetails(UsersEntity usersEntity) {
+        this.usersEntity = usersEntity;
     }
 
     public int course(){
-        return user.getCourse();
+        return usersEntity.getCourse();
     }
 
     public int groupofstudent(){
-        return user.getGroupofstudent();
+        return usersEntity.getGroupofstudent();
     }
     public String email(){
-        return user.getEmail();
+        return usersEntity.getEmail();
     }
     public String firstname(){
-        return user.getFirstname();
+        return usersEntity.getFirstname();
     }
     public String surname(){
-        return user.getSurname();
+        return usersEntity.getSurname();
     }
     public String faculty(){
-        return user.getFaculty();
+        return usersEntity.getFaculty();
     }
 
 
@@ -40,12 +41,12 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return usersEntity.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getLogin();
+        return usersEntity.getLogin();
     }
 
     @Override

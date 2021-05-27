@@ -1,8 +1,8 @@
 package com.SpringSiteGOSH.Controllers;
 
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
-import com.SpringSiteGOSH.HomeworkDatabase.homeworkSubjectsService;
+import com.SpringSiteGOSH.Repositories.CustomUserDetails;
+import com.SpringSiteGOSH.Services.CustomUserDetailsService;
+import com.SpringSiteGOSH.Services.FiveSubjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -10,13 +10,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class HomeworkPageController {
+public class FiveSubjectsPageController {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
-    private homeworkSubjectsService homeworkSubjectsService;
+    private FiveSubjectsService FiveSubjectsService;
 
     @GetMapping
     @RequestMapping("/homework")
@@ -26,8 +26,8 @@ public class HomeworkPageController {
         int course = userDetails.course();
         int groupofstudent = userDetails.groupofstudent();
         model.addAttribute("login", userDetails.getUsername());
-        model.addAttribute("subjects", homeworkSubjectsService.getHomeworkSubjects(course, groupofstudent));
-        return "homeworkPage";
+        model.addAttribute("subjects", FiveSubjectsService.getHomeworkSubjects(course, groupofstudent));
+        return "FiveSubjectsPage";
     }
 
 }

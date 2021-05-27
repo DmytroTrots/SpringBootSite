@@ -1,8 +1,8 @@
 package com.SpringSiteGOSH.Controllers;
 
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
-import com.SpringSiteGOSH.SubjectsServices.F_fitService;
+import com.SpringSiteGOSH.Repositories.CustomUserDetails;
+import com.SpringSiteGOSH.Services.CustomUserDetailsService;
+import com.SpringSiteGOSH.Services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -16,7 +16,7 @@ public class ShedulePageController {
     private CustomUserDetailsService customUserDetailsService;
 
     @Autowired
-    private F_fitService f_fitService;
+    private ScheduleService scheduleService;
 
     @GetMapping
     @RequestMapping("/schedule")
@@ -26,7 +26,7 @@ public class ShedulePageController {
         int course = userDetails.course();
         int groupofstudent = userDetails.groupofstudent();
         model.addAttribute("login", userDetails.getUsername());
-        model.addAttribute("subjects", f_fitService.getSubjectByGroupAndCourse(course, groupofstudent));
+        model.addAttribute("subjects", scheduleService.getSubjectByGroupAndCourse(course, groupofstudent));
         return "SchedulePage";
     }
 }

@@ -1,7 +1,7 @@
 package com.SpringSiteGOSH.Controllers;
 
-import com.SpringSiteGOSH.DatabaseUsers.User;
-import com.SpringSiteGOSH.DatabaseUsers.UserRepository;
+import com.SpringSiteGOSH.Entities.UsersEntity;
+import com.SpringSiteGOSH.Repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RegistrationPageController {
-    private final UserRepository repository;
+    private final UsersRepository repository;
 
     @Autowired
-    public RegistrationPageController(UserRepository repository) {
+    public RegistrationPageController(UsersRepository repository) {
         this.repository = repository;
     }
 
     @GetMapping("/registration")
     public String registrationPage(Model model){
-        model.addAttribute("user", new User());
-        return "registrationPage";
+        model.addAttribute("user", new UsersEntity());
+        return "RegistrationPage";
     }
 
     @PostMapping("/process_register")
-    public String proccesRegister(User user){
+    public String proccesRegister(UsersEntity usersEntity){
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPassword = encoder.encode(user.getPassword());
-        user.setPassword(encodedPassword);
-        repository.save(user);
-        return "referenceFromRegistration";
+        String encodedPassword = encoder.encode(usersEntity.getPassword());
+        usersEntity.setPassword(encodedPassword);
+        repository.save(usersEntity);
+        return "LoginPage";
     }
 }

@@ -1,9 +1,9 @@
 package com.SpringSiteGOSH.Controllers;
 
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
-import com.SpringSiteGOSH.HomeworkDatabase.homeworkAddDatabase;
-import com.SpringSiteGOSH.HomeworkDatabase.homeworkAddDatabaseRepository;
-import com.SpringSiteGOSH.HomeworkDatabase.homeworkAddService;
+import com.SpringSiteGOSH.Repositories.CustomUserDetails;
+import com.SpringSiteGOSH.Entities.HomeworkTasksEntity;
+import com.SpringSiteGOSH.Repositories.HomeworkTasksRepository;
+import com.SpringSiteGOSH.Services.HomeworkTasksService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -14,12 +14,12 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
-public class HomeworkAddPageController {
+public class HomeworkTasksPageController {
     @Autowired
-    private homeworkAddDatabaseRepository homeworkAddDatabaseRepository;
+    private HomeworkTasksRepository HomeworkTasksRepository;
 
     @Autowired
-    private homeworkAddService homeworkAddService;
+    private HomeworkTasksService HomeworkTasksService;
 
     @GetMapping("/homework/add")
     public String homeworkAddPage(@RequestParam("subject") String subject, Model model){
@@ -27,10 +27,10 @@ public class HomeworkAddPageController {
         Date dateNow = new Date();
         SimpleDateFormat date = new SimpleDateFormat("yyyy.MM.dd");
         String login = userDetails.getUsername();
-        model.addAttribute("homeworkTasks", homeworkAddService.getHomeworkTasks(login, date.format(dateNow), subject));
+        model.addAttribute("homeworkTasks", HomeworkTasksService.getHomeworkTasks(login, date.format(dateNow), subject));
         model.addAttribute("subj", subject);
         model.addAttribute("login", userDetails.getUsername());
-        return "homeworkAddPage";
+        return "HomeworkTasksPage";
     }
 
     @PostMapping("/homework/add")
@@ -38,9 +38,9 @@ public class HomeworkAddPageController {
         CustomUserDetails userDetails = (CustomUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String login = userDetails.getUsername();
         model.addAttribute("login", userDetails.getUsername());
-        homeworkAddDatabase homeworkAdd = new homeworkAddDatabase(subject, task, deadline, login);
-        homeworkAddDatabaseRepository.save(homeworkAdd);
-        return "redirect:homeworkPage";
+        HomeworkTasksEntity homeworkAdd = new HomeworkTasksEntity(subject, task, deadline, login);
+        HomeworkTasksRepository.save(homeworkAdd);
+        return "redirect:/homework";
     }
 }
 

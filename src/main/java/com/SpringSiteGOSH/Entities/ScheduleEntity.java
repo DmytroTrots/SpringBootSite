@@ -1,10 +1,10 @@
-package com.SpringSiteGOSH.DatabaseSubjects;
+package com.SpringSiteGOSH.Entities;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "f_fit")
-public class f_fit {
+public class ScheduleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

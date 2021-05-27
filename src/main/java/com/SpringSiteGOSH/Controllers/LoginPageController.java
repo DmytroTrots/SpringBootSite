@@ -13,7 +13,7 @@ public class LoginPageController {
     public String loginPage() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken){
-            return "loginPage";
+            return "LoginPage";
         }
         return "redirect:/schedule";
     }

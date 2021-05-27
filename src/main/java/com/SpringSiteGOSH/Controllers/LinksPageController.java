@@ -1,6 +1,6 @@
 package com.SpringSiteGOSH.Controllers;
 
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetails;
+import com.SpringSiteGOSH.Repositories.CustomUserDetails;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,6 +1,6 @@
 package com.SpringSiteGOSH;
 
-import com.SpringSiteGOSH.DatabaseUsers.CustomUserDetailsService;
+import com.SpringSiteGOSH.Services.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

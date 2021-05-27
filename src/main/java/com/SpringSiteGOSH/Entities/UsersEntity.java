@@ -1,11 +1,11 @@
-package com.SpringSiteGOSH.DatabaseUsers;
+package com.SpringSiteGOSH.Entities;
 
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UsersEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
